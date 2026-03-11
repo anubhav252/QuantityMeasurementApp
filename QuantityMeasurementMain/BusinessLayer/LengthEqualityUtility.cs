@@ -1,0 +1,34 @@
+using QuantityMeasurementMain.ModelLayer;
+
+namespace QuantityMeasurementMain.BusinessLayer
+{
+    public class LengthEqualityUtility
+    {
+        public  static bool  CheckLengthEquality(double input1, LengthUnit unit1,double input2, LengthUnit unit2)
+        {
+            Length length1 = new Length(input1, unit1);
+            Length length2 = new Length(input2, unit2);
+
+            return length1.Equals(length2);
+        }
+        //method for conversion to other unit
+        public static Length ConvertToOtherUnit(Length length,LengthUnit targetUnit)
+        {
+            if (double.IsNaN(length.Value) || double.IsInfinity(length.Value))
+            {
+                throw new Exception("invalid value");     
+            } 
+            return length.ConvertTo(targetUnit);
+        }
+        // -------- UC6 ADDITION WRAPPER --------
+        public static Length AddLengths(Length length1, Length length2)
+        {
+            return length1.Add(length2);
+        }
+        // ---------- UC7 addition with target unit ----------
+        public static Length AddLengths(Length l1,Length l2,LengthUnit targetUnit)
+        {
+            return l1.Add(l2, targetUnit);
+        }
+    }
+}
