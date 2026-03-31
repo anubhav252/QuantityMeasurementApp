@@ -366,8 +366,7 @@ Features:
 ## 🏗️ Design Patterns
 
 - Dependency Injection  
-- Repository Pattern  
-- Facade Pattern  
+- Repository Pattern   
 - Middleware Pattern  
 
 ---
